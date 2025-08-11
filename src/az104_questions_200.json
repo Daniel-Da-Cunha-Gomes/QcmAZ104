@@ -1623,5 +1623,1307 @@
     ],
     "answer": 2,
     "explanation": "Azure Site Recovery pour les VM Azure offre un RPO extrêmement bas (quelques secondes pour Premium Storage), ce qui signifie une perte de données minimale en cas de sinistre."
+  },
+ 
+  {
+    "id": "q201",
+    "domain": "Déploiement et gestion des ressources de calcul Azure",
+    "question": "Quelle est la différence principale entre le mode d'orchestration 'Uniform' et 'Flexible' pour les Virtual Machine Scale Sets (VMSS) ?",
+    "choices": [
+      "Uniform ne prend en charge que les VM Windows, Flexible que les VM Linux.",
+      "Uniform crée des VM identiques basées sur un modèle, tandis que Flexible permet de gérer un mélange de VM identiques et individuelles dans le même groupe.",
+      "Uniform est obsolète et a été remplacé par Flexible.",
+      "Flexible ne prend pas en charge la mise à l'échelle automatique."
+    ],
+    "answer": 1,
+    "explanation": "Le mode Flexible offre une haute disponibilité au niveau de la zone en répartissant les VM sur différentes zones de disponibilité et combine l'évolutivité des VMSS avec la granularité des VM autonomes."
+  },
+  {
+    "id": "q202",
+    "domain": "Mise en réseau virtuelle",
+    "question": "Quel est le but d'une stratégie de point de terminaison de service (Service Endpoint Policy) ?",
+    "choices": [
+      "Définir les services PaaS autorisés dans un VNet.",
+      "Appliquer des filtres sur le trafic sortant d'un VNet vers des services Azure via un point de terminaison de service, limitant l'exfiltration de données à des ressources spécifiques.",
+      "Contrôler le trafic entrant vers un point de terminaison de service.",
+      "Chiffrer le trafic vers un point de terminaison de service."
+    ],
+    "answer": 1,
+    "explanation": "Les stratégies de point de terminaison de service vous permettent de spécifier exactement à quelles ressources PaaS (par ex., quels comptes de stockage) votre VNet peut se connecter, empêchant les utilisateurs d'envoyer des données à des ressources non autorisées."
+  },
+  {
+    "id": "q203",
+    "domain": "Gestion des identités et gouvernance",
+    "question": "Quelle est la principale fonction de la fonctionnalité de révision d'accès (Access Review) dans Azure AD PIM ?",
+    "choices": [
+      "Analyser les coûts des rôles privilégiés.",
+      "Permettre aux administrateurs de réviser et de recertifier périodiquement les attributions de rôles privilégiés pour s'assurer qu'elles sont toujours nécessaires.",
+      "Détecter les connexions à risque pour les comptes à privilèges.",
+      "Sauvegarder la configuration des rôles PIM."
+    ],
+    "answer": 1,
+    "explanation": "Les révisions d'accès sont un contrôle de gouvernance crucial pour réduire les risques liés à un accès excessif, en forçant un examen régulier des permissions élevées."
+  },
+  {
+    "id": "q204",
+    "domain": "Mise en œuvre et gestion du stockage",
+    "question": "Quel est le but de la fonctionnalité d'immuabilité (WORM - Write Once, Read Many) pour le stockage Blob Azure ?",
+    "choices": [
+      "Améliorer les performances de lecture des blobs.",
+      "Protéger les données contre la modification ou la suppression, même par les administrateurs, pour une période de rétention définie.",
+      "Chiffrer les données avec une clé gérée par le client.",
+      "Compresser les blobs pour économiser de l'espace."
+    ],
+    "answer": 1,
+    "explanation": "Le stockage immuable est essentiel pour les scénarios de conformité réglementaire (par ex., SEC 17a-4) ou pour se protéger contre les ransomwares, en rendant les données inviolables."
+  },
+  {
+    "id": "q205",
+    "domain": "Surveillance et sauvegarde des ressources Azure",
+    "question": "Quelle est la principale différence entre le 'basculement' (failover) et le 'basculement arrière' (failback) dans Azure Site Recovery ?",
+    "choices": [
+      "Le basculement est toujours manuel, le basculement arrière est toujours automatique.",
+      "Le basculement déplace la charge de travail du site primaire vers le site de récupération (Azure), tandis que le basculement arrière est le processus de retour au site primaire une fois le sinistre résolu.",
+      "Le basculement ne peut se faire que vers Azure, le basculement arrière que vers VMware.",
+      "Il n'y a pas de différence, les termes sont interchangeables."
+    ],
+    "answer": 1,
+    "explanation": "Le cycle complet de la reprise d'activité implique un basculement vers le site secondaire en cas de sinistre, puis, après résolution, une reprotection et un basculement arrière pour revenir à l'état normal."
+  },
+  {
+    "id": "q206",
+    "domain": "Mise en réseau virtuelle",
+    "question": "À quoi sert la fonctionnalité 'FastPath' d'ExpressRoute ?",
+    "choices": [
+      "À chiffrer le trafic sur le circuit ExpressRoute.",
+      "À améliorer les performances du chemin de données en envoyant le trafic réseau directement aux machines virtuelles dans le VNet, en contournant la passerelle ExpressRoute.",
+      "À fournir une connexion de secours en cas de panne du circuit principal.",
+      "À connecter des réseaux virtuels de différentes régions."
+    ],
+    "answer": 1,
+    "explanation": "FastPath réduit la latence et augmente le nombre de paquets par seconde en optimisant le chemin de données, ce qui est particulièrement utile pour les applications sensibles à la latence."
+  },
+  {
+    "id": "q207",
+    "domain": "Déploiement et gestion des ressources de calcul Azure",
+    "question": "Quelle politique d'éviction pour une machine virtuelle Azure Spot supprime la VM et son disque de système d'exploitation associé ?",
+    "choices": [
+      "Arrêter / Désallouer",
+      "Supprimer",
+      "Mettre en veille prolongée",
+      "Archiver"
+    ],
+    "answer": 1,
+    "explanation": "La politique 'Supprimer' est utilisée lorsque vous n'avez pas besoin de conserver l'état ou les données sur le disque du système d'exploitation, ce qui convient aux travaux de traitement par lots qui enregistrent leurs résultats ailleurs."
+  },
+  {
+    "id": "q208",
+    "domain": "Gestion des identités et gouvernance",
+    "question": "Quelle est la différence entre les 'Actions' et les 'DataActions' dans une définition de rôle RBAC personnalisé ?",
+    "choices": [
+      "'Actions' s'applique aux ressources Azure AD, 'DataActions' aux ressources Azure.",
+      "'Actions' définit les opérations du plan de gestion (créer, supprimer une VM), tandis que 'DataActions' définit les opérations sur les données au sein d'une ressource (lire un blob, écrire un message dans une file d'attente).",
+      "Il n'y a pas de différence, 'DataActions' est un ancien nom pour 'Actions'.",
+      "'DataActions' est uniquement utilisé pour les comptes de stockage."
+    ],
+    "answer": 1,
+    "explanation": "Cette séparation permet de gérer distinctement l'accès à la gestion de la ressource (plan de contrôle) et l'accès aux données qu'elle contient (plan de données)."
+  },
+  {
+    "id": "q209",
+    "domain": "Mise en œuvre et gestion du stockage",
+    "question": "À quoi servent les 'balises d'index de blob' (blob index tags) ?",
+    "choices": [
+      "À organiser les blobs dans des dossiers virtuels.",
+      "À appliquer des politiques de cycle de vie aux blobs.",
+      "À fournir des attributs de métadonnées clé-valeur qui peuvent être utilisés pour filtrer et rechercher des blobs dans un compte de stockage sans avoir à lister tous les conteneurs.",
+      "À chiffrer les blobs individuellement."
+    ],
+    "answer": 2,
+    "explanation": "Les balises d'index sont automatiquement indexées et exposées comme un service de requête, ce qui permet une catégorisation et une recherche de données beaucoup plus efficaces que les métadonnées de blob traditionnelles."
+  },
+  {
+    "id": "q210",
+    "domain": "Surveillance et sauvegarde des ressources Azure",
+    "question": "Qu'est-ce que le 'Backup Center' dans Azure ?",
+    "choices": [
+      "Un autre nom pour un coffre Recovery Services.",
+      "Une interface de gestion unifiée qui vous permet de gouverner, surveiller, opérer et analyser les sauvegardes à grande échelle sur l'ensemble de vos ressources Azure.",
+      "Un outil pour calculer les coûts de sauvegarde.",
+      "L'agent de sauvegarde qui s'installe sur les serveurs locaux."
+    ],
+    "answer": 1,
+    "explanation": "Backup Center offre une vue centralisée et agrégée de votre patrimoine de sauvegarde, simplifiant la gestion pour les administrateurs qui gèrent de nombreux coffres et ressources."
+  },
+  {
+    "id": "q211",
+    "domain": "Déploiement et gestion des ressources de calcul Azure",
+    "question": "Quelle est la fonction principale d'Azure Image Builder ?",
+    "choices": [
+      "Construire des images de conteneurs Docker.",
+      "Automatiser la création, la personnalisation, la mise à jour et la distribution d'images de machines virtuelles standardisées.",
+      "Modifier des images existantes dans la Place de marché.",
+      "Compresser des images de VM pour réduire leur taille."
+    ],
+    "answer": 1,
+    "explanation": "Azure Image Builder fournit un pipeline de construction d'images déclaratif, vous permettant d'intégrer la création d'images dans vos processus DevOps pour des déploiements de VM cohérents."
+  },
+  {
+    "id": "q212",
+    "domain": "Mise en œuvre et gestion du stockage",
+    "question": "Quelle est la principale différence entre la suppression réversible (soft delete) pour les blobs et pour les partages de fichiers Azure ?",
+    "choices": [
+      "La suppression réversible n'existe que pour les blobs.",
+      "Pour les blobs, elle est configurée au niveau du compte de stockage, tandis que pour les partages de fichiers, elle est activée par défaut et ne peut pas être désactivée.",
+      "La période de rétention est beaucoup plus longue pour les partages de fichiers.",
+      "Il n'y a pas de différence fonctionnelle."
+    ],
+    "answer": 1,
+    "explanation": "Bien que le concept soit le même (protéger contre la suppression accidentelle), la méthode de configuration et les options diffèrent. Pour les blobs, l'administrateur définit la période de rétention, alors que pour les partages de fichiers, c'est une protection intégrée."
+  },
+  {
+    "id": "q213",
+    "domain": "Mise en réseau virtuelle",
+    "question": "Quelle est la principale différence de fonctionnalité entre le SKU 'Basic' et 'Standard' d'Azure Bastion ?",
+    "choices": [
+      "Basic ne prend en charge que le RDP, Standard que le SSH.",
+      "Standard prend en charge des fonctionnalités avancées comme le téléversement/téléchargement de fichiers, la configuration manuelle de la mise à l'échelle et l'accès basé sur l'IP.",
+      "Basic est plus rapide que Standard.",
+      "Standard est déployé dans le VNet du client, Basic est un service partagé."
+    ],
+    "answer": 1,
+    "explanation": "Le SKU Standard débloque des fonctionnalités d'entreprise qui sont essentielles pour de nombreux cas d'usage, notamment le transfert de fichiers et un meilleur contrôle sur le nombre d'hôtes Bastion déployés."
+  },
+  {
+    "id": "q214",
+    "domain": "Gestion des identités et gouvernance",
+    "question": "Quel est le but d'une tâche de remédiation (remediation task) pour une stratégie Azure Policy avec l'effet 'DeployIfNotExists' ?",
+    "choices": [
+      "Supprimer les ressources non conformes.",
+      "Alerter l'administrateur de la non-conformité.",
+      "Déclencher le déploiement des ressources spécifiées dans la politique pour les ressources existantes qui sont non conformes.",
+      "Modifier la politique pour la rendre moins restrictive."
+    ],
+    "answer": 2,
+    "explanation": "La politique s'applique automatiquement aux nouvelles ressources, mais pour les ressources existantes, vous devez créer une tâche de remédiation pour les mettre en conformité."
+  },
+  {
+    "id": "q215",
+    "domain": "Surveillance et sauvegarde des ressources Azure",
+    "question": "Dans Log Analytics, quelle est la principale différence entre l'opérateur 'search' et l'opérateur 'where' en KQL ?",
+    "choices": [
+      "'search' est plus rapide que 'where'.",
+      "'where' est utilisé pour filtrer des colonnes numériques, 'search' pour des colonnes de texte.",
+      "'search' effectue une recherche de texte libre sur toutes les colonnes d'une table, tandis que 'where' filtre les lignes en fonction d'une condition booléenne sur une ou plusieurs colonnes spécifiques.",
+      "Ils sont fonctionnellement identiques."
+    ],
+    "answer": 2,
+    "explanation": "'search' est idéal pour une exploration rapide et large (par ex., `search \"error\"`), tandis que 'where' est utilisé pour un filtrage précis et structuré (par ex., `where Level == \"Error\" and StatusCode == 500`)."
+  },
+  {
+    "id": "q216",
+    "domain": "Déploiement et gestion des ressources de calcul Azure",
+    "question": "Quelle technologie App Service permet à une application de se connecter de manière sécurisée à une ressource locale (comme une base de données SQL Server) sans ouvrir de port de pare-feu entrant ?",
+    "choices": [
+      "VNet Integration",
+      "App Service Environment (ASE)",
+      "Hybrid Connections",
+      "Deployment Slots"
+    ],
+    "answer": 2,
+    "explanation": "Les connexions hybrides utilisent un agent relais léger installé sur le réseau local pour établir une connexion TCP sortante vers Azure, créant un tunnel sécurisé pour l'application App Service."
+  },
+  {
+    "id": "q217",
+    "domain": "Mise en réseau virtuelle",
+    "question": "Dans quel scénario utiliseriez-vous une politique WAF (Web Application Firewall) en mode 'Détection' plutôt qu'en mode 'Prévention' sur une Application Gateway ?",
+    "choices": [
+      "Pour une sécurité maximale.",
+      "Lorsque vous déployez une nouvelle WAF et que vous voulez analyser les requêtes malveillantes potentielles sans bloquer le trafic légitime (faux positifs).",
+      "Lorsque les performances sont la seule priorité.",
+      "Le mode Détection n'est pas recommandé."
+    ],
+    "answer": 1,
+    "explanation": "Le mode Détection est une étape cruciale de la mise en œuvre d'une WAF. Il vous permet de surveiller et d'ajuster les règles en fonction de votre trafic réel avant de passer en mode Prévention pour commencer à bloquer activement les menaces."
+  },
+  {
+    "id": "q218",
+    "domain": "Mise en œuvre et gestion du stockage",
+    "question": "Quelle est la principale fonction des 'disques partagés' (shared disks) pour les disques managés Azure ?",
+    "choices": [
+      "Partager un disque entre plusieurs abonnements.",
+      "Permettre à plusieurs machines virtuelles d'attacher et d'accéder simultanément au même disque managé, pour prendre en charge des applications en cluster.",
+      "Créer des sauvegardes partagées de plusieurs disques.",
+      "Fournir un accès public en lecture seule à un disque."
+    ],
+    "answer": 1,
+    "explanation": "Les disques partagés sont essentiels pour les applications qui nécessitent une haute disponibilité via un clustering, comme les clusters de basculement Windows Server (WSFC) ou les gestionnaires de volumes logiques (LVM) sur Linux."
+  },
+  {
+    "id": "q219",
+    "domain": "Gestion des identités et gouvernance",
+    "question": "Quel est le but de la fonctionnalité de 'verrouillage des paramètres' (parameter locking) dans Azure Blueprints ?",
+    "choices": [
+      "Empêcher la modification de la définition du blueprint.",
+      "Empêcher les propriétaires d'abonnements de modifier ou de supprimer les ressources déployées par un blueprint, garantissant ainsi une gouvernance continue.",
+      "Chiffrer les paramètres du blueprint.",
+      "Définir des valeurs par défaut pour les paramètres."
+    ],
+    "answer": 1,
+    "explanation": "Le verrouillage est une fonctionnalité puissante des Blueprints qui permet aux architectes cloud de s'assurer que les environnements déployés restent conformes aux normes de l'entreprise."
+  },
+  {
+    "id": "q220",
+    "domain": "Surveillance et sauvegarde des ressources Azure",
+    "question": "Quelle est la différence entre une sauvegarde 'cohérente avec le système de fichiers' et une sauvegarde 'cohérente avec l'application' pour une machine virtuelle ?",
+    "choices": [
+      "La cohérence applicative est plus rapide.",
+      "La cohérence système de fichiers garantit que les données sur le disque sont écrites, tandis que la cohérence applicative utilise des services (comme VSS sur Windows) pour s'assurer que les applications vident leurs données en mémoire sur le disque avant l'instantané.",
+      "La cohérence système de fichiers ne fonctionne que pour Linux.",
+      "Il n'y a pas de différence significative."
+    ],
+    "answer": 1,
+    "explanation": "La cohérence applicative est cruciale pour les serveurs de bases de données (comme SQL Server ou Oracle) car elle garantit que la sauvegarde est dans un état transactionnellement cohérent, permettant une restauration sans corruption de données."
+  },
+  {
+    "id": "q221",
+    "domain": "Déploiement et gestion des ressources de calcul Azure",
+    "question": "Quelle fonctionnalité de Trusted Launch pour les machines virtuelles Azure aide à se protéger contre les bootkits et les rootkits ?",
+    "choices": [
+      "BitLocker",
+      "Secure Boot (Démarrage sécurisé)",
+      "Network Security Groups (NSG)",
+      "Azure Disk Encryption (ADE)"
+    ],
+    "answer": 1,
+    "explanation": "Le démarrage sécurisé (Secure Boot) est une norme de l'industrie qui garantit que la machine virtuelle ne démarre qu'avec des logiciels et des chargeurs de démarrage signés et approuvés, empêchant les logiciels malveillants de bas niveau de prendre le contrôle pendant le processus de démarrage."
+  },
+  {
+    "id": "q222",
+    "domain": "Mise en réseau virtuelle",
+    "question": "Quel est le but des 'règles de réécriture' (rewrite rules) dans Azure Application Gateway ?",
+    "choices": [
+      "Modifier l'adresse IP source du client.",
+      "Réécrire les en-têtes HTTP/HTTPS et l'URL des requêtes et des réponses qui transitent par la passerelle.",
+      "Modifier les règles de la table de routage.",
+      "Chiffrer le corps de la requête."
+    ],
+    "answer": 1,
+    "explanation": "Les réécritures sont utilisées pour des scénarios avancés, comme l'ajout d'en-têtes de sécurité, la suppression d'informations sensibles des en-têtes de réponse ou la modification de l'URL pour la redirection vers des microservices."
+  },
+  {
+    "id": "q223",
+    "domain": "Mise en œuvre et gestion du stockage",
+    "question": "Quelle est la principale différence entre une politique de réplication d'objet (object replication) et une géo-redondance (GRS) pour les comptes de stockage ?",
+    "choices": [
+      "La réplication d'objet est synchrone, le GRS est asynchrone.",
+      "Le GRS réplique l'ensemble du compte de stockage, tandis que la réplication d'objet est configurée au niveau du conteneur et offre un contrôle plus granulaire.",
+      "La réplication d'objet est moins chère que le GRS.",
+      "Le GRS ne protège pas contre les pannes régionales."
+    ],
+    "answer": 1,
+    "explanation": "Alors que le GRS est une solution de reprise après sinistre au niveau du compte, la réplication d'objet vous permet de copier sélectivement des conteneurs vers un autre compte (potentiellement dans une autre région) pour des besoins de distribution de données ou de conformité."
+  },
+  {
+    "id": "q224",
+    "domain": "Gestion des identités et gouvernance",
+    "question": "Quelle est la fonction d'une condition 'Risque de connexion' (Sign-in risk) dans une stratégie d'accès conditionnel Azure AD ?",
+    "choices": [
+      "Bloquer les connexions provenant de pays spécifiques.",
+      "Déclencher des contrôles d'accès (comme exiger une MFA) lorsqu'Azure AD Identity Protection détecte une connexion potentiellement compromise (par ex., depuis un emplacement atypique ou une IP anonyme).",
+      "Limiter le nombre de connexions par heure.",
+      "Vérifier si l'appareil de l'utilisateur est conforme."
+    ],
+    "answer": 1,
+    "explanation": "L'intégration avec Identity Protection permet à l'accès conditionnel de prendre des décisions en temps réel basées sur le niveau de risque de chaque tentative de connexion, améliorant considérablement la posture de sécurité."
+  },
+  {
+    "id": "q225",
+    "domain": "Surveillance et sauvegarde des ressources Azure",
+    "question": "Dans Azure Monitor, qu'est-ce qu'une 'règle d'alerte de recherche de journal' (log search alert rule) ?",
+    "choices": [
+      "Une alerte qui se déclenche lorsque la latence du journal est trop élevée.",
+      "Une règle qui exécute périodiquement une requête KQL sur les données de Log Analytics et déclenche une alerte si les résultats de la requête répondent à une condition définie.",
+      "Une alerte qui se déclenche sur une métrique en temps réel.",
+      "Une alerte qui recherche des mots-clés dans les journaux d'activité."
+    ],
+    "answer": 1,
+    "explanation": "Les alertes de recherche de journal sont extrêmement puissantes car elles vous permettent de créer des conditions d'alerte complexes et personnalisées basées sur n'importe quelle donnée que vous collectez dans Log Analytics, allant au-delà des simples seuils de métriques."
+  },
+  {
+    "id": "q226",
+    "domain": "Déploiement et gestion des ressources de calcul Azure",
+    "question": "Quelle est la fonction de la fonctionnalité 'Workload Identity' dans Azure Kubernetes Service (AKS) ?",
+    "choices": [
+      "Attribuer une identité à chaque développeur qui gère le cluster.",
+      "Permettre aux charges de travail Kubernetes (pods) d'accéder aux ressources Azure en utilisant une identité Azure AD, sans avoir besoin de gérer des secrets ou des chaînes de connexion.",
+      "Isoler les charges de travail dans des pools de nœuds séparés.",
+      "Surveiller les performances des charges de travail."
+    ],
+    "answer": 1,
+    "explanation": "Workload Identity (successeur de Pod Identity) est la méthode recommandée pour une authentification sécurisée et sans secret entre les pods d'un cluster AKS et d'autres services Azure comme Key Vault, Storage ou SQL Database."
+  },
+  {
+    "id": "q227",
+    "domain": "Mise en réseau virtuelle",
+    "question": "Quelle fonctionnalité d'Azure Firewall Premium peut intercepter, déchiffrer et inspecter le trafic TLS pour la détection des menaces ?",
+    "choices": [
+      "Règles NAT",
+      "Filtre de renseignement sur les menaces",
+      "Inspection TLS",
+      "Règles d'application"
+    ],
+    "answer": 2,
+    "explanation": "L'inspection TLS est une fonctionnalité de sécurité essentielle qui permet au pare-feu d'inspecter le contenu du trafic chiffré, ce qui est nécessaire pour appliquer des fonctionnalités avancées comme l'IDPS sur le trafic HTTPS."
+  },
+  {
+    "id": "q228",
+    "domain": "Mise en œuvre et gestion du stockage",
+    "question": "Quel est le but de la fonctionnalité de 'basculement de compte' (account failover) pour les comptes de stockage géo-redondants (GRS/GZRS) ?",
+    "choices": [
+      "Basculer automatiquement en cas de panne.",
+      "Permettre à l'administrateur de lancer manuellement un basculement vers la région secondaire, changeant le point de terminaison principal du stockage vers la région secondaire.",
+      "Synchroniser les données entre les deux régions.",
+      "Restaurer une sauvegarde du compte de stockage."
+    ],
+    "answer": 1,
+    "explanation": "En cas de panne régionale majeure, le basculement de compte est l'action de reprise d'activité qui redirige tout le trafic vers la copie géo-redondante de vos données pour restaurer la disponibilité du service."
+  },
+  {
+    "id": "q229",
+    "domain": "Gestion des identités et gouvernance",
+    "question": "Comment un budget dans Azure Cost Management peut-il déclencher une action automatisée, comme l'arrêt d'un groupe de machines virtuelles de test ?",
+    "choices": [
+      "En envoyant un email à l'administrateur qui doit ensuite agir manuellement.",
+      "En configurant le budget pour appeler un groupe d'actions (Action Group) qui exécute un runbook Azure Automation ou une Logic App lorsque le seuil est atteint.",
+      "Ce n'est pas possible, les budgets ne peuvent envoyer que des alertes.",
+      "En appliquant une politique Azure Policy qui bloque la création de nouvelles ressources."
+    ],
+    "answer": 1,
+    "explanation": "L'intégration avec les groupes d'actions rend les budgets extrêmement puissants, vous permettant de passer d'une simple notification à une gouvernance des coûts automatisée et active."
+  },
+  {
+    "id": "q230",
+    "domain": "Surveillance et sauvegarde des ressources Azure",
+    "question": "Quelle est la principale fonction d'une 'règle de collecte de données' (Data Collection Rule - DCR) dans Azure Monitor ?",
+    "choices": [
+      "Définir une politique de sauvegarde pour les données collectées.",
+      "Définir quelles données sont collectées par l'agent Azure Monitor, comment elles sont transformées, et où elles sont envoyées (par ex., Log Analytics, Azure Storage).",
+      "Visualiser les données collectées dans un tableau de bord.",
+      "Analyser le coût de la collecte de données."
+    ],
+    "answer": 1,
+    "explanation": "Les DCR sont le mécanisme central et moderne pour configurer la collecte de données à grande échelle avec l'agent Azure Monitor, offrant un contrôle granulaire sur le pipeline de télémétrie."
+  },
+  {
+    "id": "q231",
+    "domain": "Déploiement et gestion des ressources de calcul Azure",
+    "question": "Quel est le but des 'domaines de mise à jour' (Update Domains) dans un groupe à haute disponibilité (Availability Set) ?",
+    "choices": [
+      "Protéger contre les pannes de matériel comme une alimentation défectueuse.",
+      "Définir un groupe de machines virtuelles et de matériel sous-jacent qui peuvent être redémarrés en même temps lors d'une maintenance planifiée de l'hôte.",
+      "Isoler les machines virtuelles dans des centres de données physiquement séparés.",
+      "Mettre à jour automatiquement le système d'exploitation des machines virtuelles."
+    ],
+    "answer": 1,
+    "explanation": "En répartissant les VM sur plusieurs domaines de mise à jour, Azure s'assure qu'une partie de votre application reste toujours en ligne pendant que les hôtes sont mis à jour séquentiellement."
+  },
+  {
+    "id": "q232",
+    "domain": "Mise en réseau virtuelle",
+    "question": "Quel est le principal cas d'utilisation d'Azure Private Link Service ?",
+    "choices": [
+      "Se connecter à des services PaaS Azure comme Azure SQL.",
+      "Permettre à vos propres services (s'exécutant derrière un Azure Load Balancer Standard) d'être accessibles de manière privée par des consommateurs d'autres réseaux virtuels.",
+      "Créer une connexion VPN de site à site.",
+      "Accéder à Internet de manière privée."
+    ],
+    "answer": 1,
+    "explanation": "Private Link Service vous permet de devenir un fournisseur de services. Des clients dans d'autres VNets peuvent alors créer un point de terminaison privé pour se connecter à votre service sans jamais exposer le trafic à l'Internet public."
+  },
+  {
+    "id": "q233",
+    "domain": "Mise en œuvre et gestion du stockage",
+    "question": "Quelle est la fonction de la politique de réplication pour une SAS (Signature d'Accès Partagé) ?",
+    "choices": [
+      "Définir le type de réplication du compte de stockage.",
+      "Créer une SAS qui ne fonctionnera que si le compte de stockage a une réplication géo-redondante.",
+      "Définir une politique d'accès stockée sur le serveur qui peut être utilisée pour gérer et révoquer facilement un groupe de SAS.",
+      "Répliquer la SAS elle-même dans une autre région pour la haute disponibilité."
+    ],
+    "answer": 2,
+    "explanation": "Les politiques d'accès stockées offrent un niveau de contrôle supérieur. Au lieu de distribuer des SAS avec des permissions et des expirations fixes, vous distribuez des SAS qui héritent de la politique. Vous pouvez alors modifier ou révoquer la politique pour invalider toutes les SAS associées."
+  },
+  {
+    "id": "q234",
+    "domain": "Gestion des identités et gouvernance",
+    "question": "Quel effet de Azure Policy peut être utilisé pour ajouter des balises (tags) à des ressources lors de leur création, par exemple pour ajouter une balise 'CreatedBy' ?",
+    "choices": [
+      "Deny",
+      "Audit",
+      "Append",
+      "Modify"
+    ],
+    "answer": 3,
+    "explanation": "L'effet Modify est conçu pour ajouter ou mettre à jour des propriétés ou des balises sur des ressources pendant leur création ou leur mise à jour. C'est un outil puissant pour appliquer la standardisation."
+  },
+  {
+    "id": "q235",
+    "domain": "Surveillance et sauvegarde des ressources Azure",
+    "question": "Quelle est la fonction principale de l'agent MARS (Microsoft Azure Recovery Services) ?",
+    "choices": [
+      "Sauvegarder des machines virtuelles Azure complètes.",
+      "Sauvegarder des fichiers, des dossiers et l'état du système à partir de serveurs Windows locaux (ou de VM) vers un coffre Recovery Services.",
+      "Surveiller les performances des serveurs locaux.",
+      "Migrer des serveurs locaux vers Azure."
+    ],
+    "answer": 1,
+    "explanation": "L'agent MARS est une solution de sauvegarde au niveau fichier, idéale pour protéger des données spécifiques sur des machines physiques ou virtuelles Windows, distincte de la sauvegarde de VM complète basée sur des instantanés."
+  },
+  {
+    "id": "q236",
+    "domain": "Déploiement et gestion des ressources de calcul Azure",
+    "question": "Quelle est la principale différence entre un certificat géré par App Service et un certificat que vous importez ?",
+    "choices": [
+      "Le certificat géré est moins sécurisé.",
+      "Un certificat géré est gratuit, émis par DigiCert, et automatiquement renouvelé par Azure. Un certificat importé doit être acheté et renouvelé manuellement par l'utilisateur.",
+      "Le certificat géré ne peut pas être utilisé avec un domaine racine (apex domain).",
+      "Il n'y a pas de différence."
+    ],
+    "answer": 1,
+    "explanation": "Le certificat géré par App Service est une option extrêmement pratique pour sécuriser des domaines personnalisés sans les tracas administratifs liés à l'achat, la configuration et le renouvellement des certificats SSL/TLS."
+  },
+  {
+    "id": "q237",
+    "domain": "Mise en réseau virtuelle",
+    "question": "Quelle est la fonction de la 'passerelle de transit' (gateway transit) dans une configuration d'appairage de réseaux virtuels ?",
+    "choices": [
+      "Permettre au trafic de transiter directement entre deux réseaux appairés.",
+      "Permettre à un réseau virtuel appairé (spoke) d'utiliser la passerelle VPN ou ExpressRoute d'un autre réseau virtuel (hub) pour atteindre des réseaux distants.",
+      "Créer une nouvelle passerelle pour la connexion d'appairage.",
+      "Chiffrer le trafic entre les réseaux appairés."
+    ],
+    "answer": 1,
+    "explanation": "Cette option est fondamentale dans une topologie en étoile (Hub-and-Spoke), car elle permet de centraliser la passerelle de connectivité dans le VNet hub et d'éviter d'avoir à déployer une passerelle dans chaque VNet spoke."
+  },
+  {
+    "id": "q238",
+    "domain": "Mise en œuvre et gestion du stockage",
+    "question": "Quelle est la principale utilisation de l'outil Azure Storage Mover ?",
+    "choices": [
+      "Déplacer des données entre des conteneurs blob.",
+      "Migrer des partages de fichiers de sources locales (comme des serveurs de fichiers NetApp ou Windows) vers des partages de fichiers Azure.",
+      "Déplacer des disques managés entre des régions.",
+      "Migrer des boîtes aux lettres vers Exchange Online."
+    ],
+    "answer": 1,
+    "explanation": "Azure Storage Mover est un service de migration entièrement géré qui simplifie le processus de déplacement de partages de fichiers vers Azure Files en gérant le travail de migration et la synchronisation."
+  },
+  {
+    "id": "q239",
+    "domain": "Gestion des identités et gouvernance",
+    "question": "Comment pouvez-vous appliquer un ensemble de politiques Azure interdépendantes en une seule fois à une portée (scope) spécifique ?",
+    "choices": [
+      "En créant un rôle RBAC personnalisé.",
+      "En assignant chaque politique individuellement.",
+      "En créant et en assignant une initiative de politique (aussi appelée 'set de politiques' ou 'policy set').",
+      "En utilisant un modèle ARM."
+    ],
+    "answer": 2,
+    "explanation": "Les initiatives simplifient la gestion en regroupant des politiques qui partagent un objectif commun (par ex., la conformité à la norme ISO 27001) en un seul objet assignable."
+  },
+  {
+    "id": "q240",
+    "domain": "Surveillance et sauvegarde des ressources Azure",
+    "question": "Quelle est la fonction de la 'restauration instantanée' (Instant Restore) dans Azure Backup ?",
+    "choices": [
+      "Restaurer instantanément la VM en la démarrant directement à partir du stockage de sauvegarde, sans attendre que les données soient transférées vers le compte de stockage de production.",
+      "Créer un instantané instantané de la VM.",
+      "Restaurer uniquement les fichiers modifiés depuis la dernière sauvegarde.",
+      "Une option de restauration plus rapide mais plus coûteuse."
+    ],
+    "answer": 0,
+    "explanation": "La restauration instantanée réduit considérablement le temps de récupération (RTO) en montant un partage iSCSI à partir du point de récupération, permettant à la VM de démarrer en quelques minutes pendant que les données sont migrées en arrière-plan."
+  },
+  {
+    "id": "q241",
+    "domain": "Déploiement et gestion des ressources de calcul Azure",
+    "question": "Dans AKS, quel composant est responsable de l'exposition des services Kubernetes (comme les LoadBalancers) au monde extérieur ?",
+    "choices": [
+      "Kubelet",
+      "CoreDNS",
+      "Azure CNI",
+      "Le contrôleur d'entrée (Ingress Controller)"
+    ],
+    "answer": 3,
+    "explanation": "Un contrôleur d'entrée, comme NGINX ou AGIC (Application Gateway Ingress Controller), agit comme un reverse proxy de niveau 7 pour gérer l'accès externe aux services d'un cluster, offrant un routage basé sur l'hôte et le chemin."
+  },
+  {
+    "id": "q242",
+    "domain": "Mise en réseau virtuelle",
+    "question": "Quelle est la différence fondamentale entre Azure DDoS Protection Standard et un pare-feu d'application web (WAF) ?",
+    "choices": [
+      "Ils protègent contre les mêmes menaces.",
+      "DDoS Protection protège contre les attaques volumétriques au niveau des couches 3 et 4 (inondation de réseau), tandis qu'un WAF protège contre les attaques au niveau de la couche 7 (injection SQL, cross-site scripting).",
+      "Le WAF est toujours plus cher.",
+      "DDoS Protection est un service mondial, le WAF est régional."
+    ],
+    "answer": 1,
+    "explanation": "Ce sont deux services de sécurité complémentaires. DDoS Protection assure que votre application reste accessible au niveau du réseau, tandis que le WAF inspecte le trafic HTTP/HTTPS pour bloquer les tentatives d'exploitation de vulnérabilités applicatives."
+  },
+  {
+    "id": "q243",
+    "domain": "Mise en œuvre et gestion du stockage",
+    "question": "Quelle est la fonction de l'option 'chiffrement double au niveau de l'infrastructure' (infrastructure encryption) pour un compte de stockage ?",
+    "choices": [
+      "Chiffrer les données deux fois avec la même clé.",
+      "Ajouter une deuxième couche de chiffrement au niveau du serveur physique qui héberge les données, en utilisant une clé différente de celle du chiffrement au niveau du service.",
+      "Chiffrer les données en transit et au repos.",
+      "Utiliser une clé gérée par le client pour le chiffrement."
+    ],
+    "answer": 1,
+    "explanation": "Le chiffrement d'infrastructure offre une protection supplémentaire contre des scénarios où la clé de chiffrement du service serait compromise, en garantissant que les données sont chiffrées deux fois de manière indépendante."
+  },
+  {
+    "id": "q244",
+    "domain": "Gestion des identités et gouvernance",
+    "question": "Dans quel scénario utiliseriez-vous préférentiellement Azure AD B2B (Business-to-Business) plutôt que B2C (Business-to-Consumer) ?",
+    "choices": [
+      "Pour une application mobile grand public avec des millions d'utilisateurs.",
+      "Pour permettre aux employés d'une entreprise partenaire de collaborer et d'accéder à vos applications et documents SharePoint.",
+      "Pour permettre aux utilisateurs de se connecter avec leurs comptes de réseaux sociaux.",
+      "Pour créer un annuaire d'identités entièrement personnalisé pour une application."
+    ],
+    "answer": 1,
+    "explanation": "Azure AD B2B est conçu pour la collaboration entre organisations, en permettant aux utilisateurs externes de s'authentifier avec les informations d'identification de leur propre entreprise."
+  },
+  {
+    "id": "q245",
+    "domain": "Surveillance et sauvegarde des ressources Azure",
+    "question": "Vous voulez archiver les journaux de flux NSG (NSG Flow Logs) pour une longue période au coût le plus bas. Quelle destination devriez-vous choisir ?",
+    "choices": [
+      "Un espace de travail Log Analytics.",
+      "Azure Event Hubs.",
+      "Un compte de stockage Azure avec un cycle de vie qui déplace les données vers le niveau Archive.",
+      "Microsoft Sentinel."
+    ],
+    "answer": 2,
+    "explanation": "Les comptes de stockage sont la destination la plus rentable pour l'archivage à long terme, et l'utilisation des politiques de cycle de vie pour déplacer les anciens journaux vers le niveau Archive minimise encore plus les coûts."
+  },
+  {
+    "id": "q246",
+    "domain": "Déploiement et gestion des ressources de calcul Azure",
+    "question": "Comment pouvez-vous configurer un autoscaler de pods horizontal (HPA) dans Azure Kubernetes Service (AKS) ?",
+    "choices": [
+      "En modifiant les paramètres du plan App Service.",
+      "En définissant une ressource Kubernetes de type 'HorizontalPodAutoscaler' qui cible un déploiement et spécifie des métriques (comme l'utilisation du CPU).",
+      "En ajustant le nombre d'instances dans le portail Azure.",
+      "En configurant le 'cluster autoscaler'."
+    ],
+    "answer": 1,
+    "explanation": "Le HPA est un composant standard de Kubernetes qui ajuste dynamiquement le nombre de pods dans un déploiement en fonction de métriques observées, garantissant que l'application a suffisamment de réplicas pour gérer la charge."
+  },
+  {
+    "id": "q247",
+    "domain": "Mise en réseau virtuelle",
+    "question": "Quelle est la principale fonction d'une politique de pare-feu (Firewall Policy) dans le contexte d'Azure Firewall ?",
+    "choices": [
+      "Définir le SKU du pare-feu (Standard ou Premium).",
+      "C'est une ressource globale qui peut être utilisée pour configurer et gérer de manière centralisée les règles et les paramètres de plusieurs instances d'Azure Firewall.",
+      "Sauvegarder la configuration d'un pare-feu.",
+      "Analyser le trafic du pare-feu."
+    ],
+    "answer": 1,
+    "explanation": "Les politiques de pare-feu sont essentielles pour la gestion à grande échelle. Elles permettent d'appliquer un ensemble de règles de base cohérent à plusieurs pare-feu et de déléguer la gestion de règles plus spécifiques (locales)."
+  },
+  {
+    "id": "q248",
+    "domain": "Mise en œuvre et gestion du stockage",
+    "question": "Quelle est la fonction de la politique CORS (Cross-Origin Resource Sharing) sur un compte de stockage Azure ?",
+    "choices": [
+      "Chiffrer les données en transit.",
+      "Permettre à une application web s'exécutant sur un domaine A de faire des requêtes vers des ressources de stockage sur un domaine B (votre compte de stockage).",
+      "Bloquer l'accès depuis des adresses IP spécifiques.",
+      "Définir les permissions pour une signature d'accès partagé (SAS)."
+    ],
+    "answer": 1,
+    "explanation": "Par défaut, les navigateurs web empêchent les scripts côté client de faire des requêtes entre différents domaines pour des raisons de sécurité. CORS est le mécanisme standard pour autoriser ces requêtes de manière sécurisée."
+  },
+  {
+    "id": "q249",
+    "domain": "Gestion des identités et gouvernance",
+    "question": "Quel contrôle de session de l'accès conditionnel Azure AD force les utilisateurs à se réauthentifier après une période de temps définie ?",
+    "choices": [
+      "Utiliser les restrictions imposées par l'application.",
+      "Fréquence de connexion (Sign-in frequency).",
+      "Session de navigateur persistante.",
+      "Exiger que l'appareil soit marqué comme conforme."
+    ],
+    "answer": 1,
+    "explanation": "La fréquence de connexion vous permet d'équilibrer la sécurité et l'expérience utilisateur, en exigeant une nouvelle authentification pour les applications sensibles plus souvent que pour les applications moins critiques."
+  },
+  {
+    "id": "q250",
+    "domain": "Surveillance et sauvegarde des ressources Azure",
+    "question": "Quel est le but d'un 'plan de récupération' (Recovery Plan) dans Azure Site Recovery ?",
+    "choices": [
+      "Définir la politique de sauvegarde des machines virtuelles.",
+      "Orchestrer le basculement d'une application multi-niveaux en regroupant des machines virtuelles, en définissant des dépendances de démarrage et en ajoutant des étapes manuelles ou des scripts.",
+      "Calculer le coût de la reprise après sinistre.",
+      "Restaurer des fichiers individuels à partir d'une sauvegarde."
+    ],
+    "answer": 1,
+    "explanation": "Un plan de récupération transforme le processus de basculement d'une série d'étapes manuelles en un processus automatisé, reproductible et fiable, ce qui est essentiel pour les applications complexes."
+  },
+  {
+    "id": "q251",
+    "domain": "Déploiement et gestion des ressources de calcul Azure",
+    "question": "Qu'est-ce qu'un groupe de conteneurs (container group) dans Azure Container Instances (ACI) ?",
+    "choices": [
+      "Un autre nom pour un cluster Kubernetes.",
+      "Une collection de conteneurs qui sont planifiés sur la même machine hôte et partagent un cycle de vie, un réseau et des volumes de stockage.",
+      "Un groupe de sécurité pour les conteneurs.",
+      "Un modèle de déploiement pour ACI."
+    ],
+    "answer": 1,
+    "explanation": "Les groupes de conteneurs sont le concept de base d'ACI, permettant de déployer des conteneurs co-localisés qui doivent travailler ensemble, comme un conteneur d'application et un conteneur d'assistance (sidecar) pour la journalisation."
+  },
+  {
+    "id": "q252",
+    "domain": "Mise en réseau virtuelle",
+    "question": "Comment pouvez-vous vous assurer que tout le trafic sortant d'un sous-réseau est acheminé via votre appliance de pare-feu Azure (forced tunneling) ?",
+    "choices": [
+      "En configurant une règle de trafic sortant dans un NSG.",
+      "En créant une table de routage avec une route par défaut (0.0.0.0/0) qui pointe vers l'adresse IP privée du pare-feu, et en l'associant au sous-réseau.",
+      "En utilisant VNet Peering.",
+      "En activant Azure DDoS Protection."
+    ],
+    "answer": 1,
+    "explanation": "Le forçage de tunnel via une route définie par l'utilisateur (UDR) est la méthode standard pour centraliser l'inspection et le contrôle de tout le trafic Internet sortant de vos réseaux virtuels."
+  },
+  {
+    "id": "q253",
+    "domain": "Mise en œuvre et gestion du stockage",
+    "question": "Quelle est la principale différence de performance entre un disque SSD Standard et un disque SSD Premium dans Azure ?",
+    "choices": [
+      "Le SSD Standard offre une latence plus faible.",
+      "Le SSD Premium offre un IOPS et un débit garantis et plus élevés, ce qui le rend adapté aux charges de travail de production, tandis que le SSD Standard est destiné aux charges de travail moins critiques.",
+      "Le SSD Standard ne peut pas être utilisé comme disque de système d'exploitation.",
+      "Il n'y a pas de différence de performance."
+    ],
+    "answer": 1,
+    "explanation": "Le choix entre SSD Standard et Premium est un compromis entre le coût et la performance. Les disques Premium ont des niveaux de service (SLA) de performance stricts, contrairement aux disques Standard."
+  },
+  {
+    "id": "q254",
+    "domain": "Gestion des identités et gouvernance",
+    "question": "Qu'est-ce qu'un 'principal de service' (service principal) dans Azure AD ?",
+    "choices": [
+      "Un utilisateur avec des privilèges d'administrateur de service.",
+      "Une instance d'une application dans un tenant Azure AD, qui sert d'identité à l'application pour s'authentifier et se voir accorder des permissions sur les ressources.",
+      "Un groupe de sécurité spécial pour les services.",
+      "Un service qui gère les mots de passe des comptes de service."
+    ],
+    "answer": 1,
+    "explanation": "Lorsqu'une application est enregistrée dans Azure AD, un principal de service est créé dans chaque tenant où l'application est utilisée. C'est cet objet qui reçoit les attributions de rôle RBAC."
+  },
+  {
+    "id": "q255",
+    "domain": "Surveillance et sauvegarde des ressources Azure",
+    "question": "Quelle est la fonction de la fonctionnalité 'VM Insights' dans Azure Monitor ?",
+    "choices": [
+      "Fournir des recommandations de coût pour les VM.",
+      "Surveiller en profondeur les performances et la santé des machines virtuelles, y compris les processus en cours et les dépendances réseau, via des classeurs et des vues de carte prédéfinis.",
+      "Sauvegarder la configuration de la VM.",
+      "Se connecter à la console de la VM."
+    ],
+    "answer": 1,
+    "explanation": "VM Insights va au-delà des métriques de base en déployant des agents pour collecter des données à l'intérieur du système d'exploitation, offrant une visibilité essentielle pour le dépannage des performances applicatives."
+  },
+  {
+    "id": "q256",
+    "domain": "Déploiement et gestion des ressources de calcul Azure",
+    "question": "Quel est le but des 'extensions de machine virtuelle' (VM extensions) ?",
+    "choices": [
+      "Augmenter le nombre de processeurs virtuels d'une VM.",
+      "Fournir des fonctionnalités de configuration et d'automatisation post-déploiement sur les machines virtuelles, comme l'installation de logiciels, la configuration antivirus ou la collecte de diagnostics.",
+      "Ajouter des disques de données supplémentaires à une VM.",
+      "Connecter une VM à un réseau virtuel."
+    ],
+    "answer": 1,
+    "explanation": "Les extensions sont de petites applications qui s'exécutent sur une VM pour l'intégrer à d'autres services Azure ou pour effectuer des tâches d'administration courantes de manière automatisée."
+  },
+  {
+    "id": "q257",
+    "domain": "Mise en réseau virtuelle",
+    "question": "Quelle est la principale différence entre ExpressRoute Direct et un circuit ExpressRoute standard ?",
+    "choices": [
+      "ExpressRoute Direct offre une bande passante plus faible.",
+      "ExpressRoute Direct fournit une connectivité physique directe au réseau mondial de Microsoft à des vitesses de 10 Gbps ou 100 Gbps, offrant un contrôle et une capacité massifs, tandis qu'un circuit standard est une connexion logique via un partenaire de connectivité.",
+      "ExpressRoute Direct est plus facile à configurer.",
+      "Seul ExpressRoute standard prend en charge le peering Microsoft."
+    ],
+    "answer": 1,
+    "explanation": "ExpressRoute Direct est destiné aux très grandes entreprises ayant des besoins de transfert de données massifs et qui souhaitent une connectivité physique dédiée sans passer par un fournisseur partenaire."
+  },
+  {
+    "id": "q258",
+    "domain": "Mise en œuvre et gestion du stockage",
+    "question": "Comment pouvez-vous monter un partage de fichiers Azure sur une machine qui n'est pas dans le même réseau virtuel, sans exposer le port 445 à l'Internet public ?",
+    "choices": [
+      "En utilisant une SAS de blob.",
+      "En configurant un VPN de point à site ou de site à site pour établir une connectivité sécurisée au réseau virtuel, puis en montant le partage via son point de terminaison privé.",
+      "Ce n'est pas possible.",
+      "En utilisant le protocole HTTP."
+    ],
+    "answer": 1,
+    "explanation": "L'accès aux partages de fichiers via des points de terminaison privés est la méthode la plus sécurisée. Pour les clients distants, un VPN est nécessaire pour se connecter au VNet et accéder au point de terminaison privé."
+  },
+  {
+    "id": "q259",
+    "domain": "Gestion des identités et gouvernance",
+    "question": "Comment pouvez-vous exporter les données de coût et d'utilisation d'Azure de manière récurrente vers un compte de stockage ?",
+    "choices": [
+      "En copiant manuellement les données depuis le portail chaque mois.",
+      "En utilisant la fonctionnalité 'Exports' dans Cost Management, qui permet de planifier des exportations quotidiennes, hebdomadaires ou mensuelles des données détaillées.",
+      "En écrivant un script PowerShell complexe.",
+      "En utilisant Azure Data Factory."
+    ],
+    "answer": 1,
+    "explanation": "Les exportations planifiées sont la méthode recommandée pour intégrer les données de facturation Azure dans vos propres systèmes d'analyse financière ou de veille stratégique (BI)."
+  },
+  {
+    "id": "q260",
+    "domain": "Surveillance et sauvegarde des ressources Azure",
+    "question": "Quelle est la différence fondamentale entre Azure Monitor et Microsoft Sentinel ?",
+    "choices": [
+      "Azure Monitor est pour les applications, Sentinel est pour l'infrastructure.",
+      "Azure Monitor est une plateforme de surveillance pour la télémétrie de performance et de disponibilité, tandis que Microsoft Sentinel est une solution SIEM (Security Information and Event Management) et SOAR (Security Orchestration, Automation, and Response) qui utilise les données de Monitor (et d'autres sources) pour la détection et la réponse aux menaces de sécurité.",
+      "Azure Monitor est gratuit, Microsoft Sentinel est payant.",
+      "Ils sont deux noms pour le même produit."
+    ],
+    "answer": 1,
+    "explanation": "Azure Monitor est la source de données pour la santé opérationnelle. Microsoft Sentinel s'appuie sur ces données (et bien d'autres) pour se concentrer exclusivement sur la sécurité : détection d'attaques, investigation et réponse aux incidents."
+  },
+  {
+    "id": "q261",
+    "domain": "Déploiement et gestion des ressources de calcul Azure",
+    "question": "Quelle est la principale utilité d'un 'groupe de placement de proximité' (Proximity Placement Group) ?",
+    "choices": [
+      "Assurer que les VM sont dans des régions différentes pour la haute disponibilité.",
+      "Regrouper les ressources Azure physiquement dans le même centre de données pour réduire la latence réseau entre elles.",
+      "Appliquer des politiques de sécurité communes à un groupe de VM.",
+      "Organiser les ressources pour la facturation."
+    ],
+    "answer": 1,
+    "explanation": "Les groupes de placement de proximité sont essentiels pour les applications multi-niveaux où les différents composants (par ex., le serveur web et le serveur de base de données) doivent communiquer avec la plus faible latence possible."
+  },
+  {
+    "id": "q262",
+    "domain": "Mise en réseau virtuelle",
+    "question": "Quel est le but du 'peering de réseaux virtuels global' (Global VNet Peering) ?",
+    "choices": [
+      "Connecter un réseau virtuel à un réseau local.",
+      "Connecter de manière transparente et privée des réseaux virtuels situés dans différentes régions Azure.",
+      "Connecter tous les réseaux virtuels d'un abonnement entre eux.",
+      "Connecter un réseau virtuel à Internet."
+    ],
+    "answer": 1,
+    "explanation": "L'appairage global utilise le réseau principal (backbone) de Microsoft pour fournir une connectivité à faible latence et à large bande passante entre les régions, sans que le trafic ne transite par l'Internet public."
+  },
+  {
+    "id": "q263",
+    "domain": "Mise en œuvre et gestion du stockage",
+    "question": "Qu'est-ce que le 'bursting' de disque pour les disques managés Azure ?",
+    "choices": [
+      "Une augmentation permanente de la performance du disque.",
+      "Une fonctionnalité qui permet à un disque d'accumuler des crédits lorsqu'il est sous-utilisé et de les utiliser pour dépasser temporairement sa performance de base (IOPS et débit) lors de pics de trafic.",
+      "Une méthode pour créer rapidement des instantanés de disque.",
+      "Une augmentation de la taille du disque."
+    ],
+    "answer": 1,
+    "explanation": "Le bursting offre une flexibilité de performance, en particulier pour les disques de petite taille, en leur permettant de gérer des rafales de trafic inattendues sans avoir à provisionner un disque de niveau supérieur en permanence."
+  },
+  {
+    "id": "q264",
+    "domain": "Gestion des identités et gouvernance",
+    "question": "Quel est l'effet d'un verrou de ressource 'CanNotDelete' appliqué à un groupe de ressources ?",
+    "choices": [
+      "Il empêche toute modification des ressources dans le groupe.",
+      "Il empêche la suppression du groupe de ressources et de toutes les ressources qu'il contient, mais autorise les modifications.",
+      "Il cache les ressources aux utilisateurs qui n'ont pas le rôle de Lecteur.",
+      "Il active automatiquement la sauvegarde pour toutes les ressources."
+    ],
+    "answer": 1,
+    "explanation": "Le verrou 'CanNotDelete' est un filet de sécurité courant pour les ressources de production critiques, protégeant contre les suppressions accidentelles tout en permettant les opérations de gestion normales."
+  },
+  {
+    "id": "q265",
+    "domain": "Surveillance et sauvegarde des ressources Azure",
+    "question": "Quel est le but d'un 'espace de travail Log Analytics' (Log Analytics Workspace) ?",
+    "choices": [
+      "Un compte de stockage pour les fichiers journaux bruts.",
+      "Un environnement unique pour stocker, agréger, interroger et analyser les données de journal provenant de diverses sources Azure et non-Azure.",
+      "Un outil de visualisation pour les métriques.",
+      "Une base de données SQL pour les logs."
+    ],
+    "answer": 1,
+    "explanation": "L'espace de travail est l'unité administrative et de facturation fondamentale d'Azure Monitor Logs. Il fournit un service d'interrogation puissant via KQL et s'intègre à de nombreuses autres solutions de gestion."
+  },
+  {
+    "id": "q266",
+    "domain": "Déploiement et gestion des ressources de calcul Azure",
+    "question": "Quelle est la principale différence entre une mise à l'échelle 'verticale' (scale up) et 'horizontale' (scale out) d'un plan App Service ?",
+    "choices": [
+      "La mise à l'échelle verticale ajoute plus d'instances de VM, l'horizontale augmente la puissance des instances existantes.",
+      "La mise à l'échelle verticale augmente la puissance des instances (CPU, RAM, stockage) en passant à un niveau supérieur, tandis que la mise à l'échelle horizontale augmente le nombre d'instances de VM.",
+      "La mise à l'échelle verticale est automatique, l'horizontale est manuelle.",
+      "Il n'y a pas de différence."
+    ],
+    "answer": 1,
+    "explanation": "La mise à l'échelle verticale est utilisée lorsque votre application a besoin de plus de ressources sur une seule instance, tandis que la mise à l'échelle horizontale est utilisée pour gérer une augmentation du nombre de requêtes en répartissant la charge sur plusieurs instances."
+  },
+  {
+    "id": "q267",
+    "domain": "Mise en réseau virtuelle",
+    "question": "Quelle est la différence fondamentale entre un 'point de terminaison de service' et un 'point de terminaison privé' pour sécuriser l'accès à un service PaaS ?",
+    "choices": [
+      "Le point de terminaison de service est plus sécurisé.",
+      "Le point de terminaison de service expose le service PaaS sur une IP publique accessible uniquement depuis le VNet, tandis que le point de terminaison privé injecte une carte réseau avec une IP privée du VNet directement pour le service PaaS.",
+      "Le point de terminaison privé est plus facile à configurer.",
+      "Le point de terminaison de service fonctionne pour les réseaux locaux, le privé non."
+    ],
+    "answer": 1,
+    "explanation": "Le point de terminaison privé offre un niveau d'isolation supérieur car le service PaaS devient une ressource native de votre VNet, accessible via une IP privée, ce qui simplifie la connectivité depuis les réseaux locaux et les VNets appairés."
+  },
+  {
+    "id": "q268",
+    "domain": "Mise en œuvre et gestion du stockage",
+    "question": "Quel service est conçu pour synchroniser un partage de fichiers Azure dans le cloud avec un serveur de fichiers Windows local, agissant comme un cache de fichiers ?",
+    "choices": [
+      "AzCopy",
+      "Azure Data Box",
+      "Azure File Sync",
+      "Robocopy"
+    ],
+    "answer": 2,
+    "explanation": "Azure File Sync est idéal pour les scénarios de modernisation de serveurs de fichiers, en centralisant les données dans Azure Files tout en maintenant des performances d'accès local rapides grâce à sa fonctionnalité de mise en cache et de hiérarchisation cloud."
+  },
+  {
+    "id": "q269",
+    "domain": "Gestion des identités et gouvernance",
+    "question": "Quelle est la portée (scope) la plus basse à laquelle une attribution de rôle RBAC peut être appliquée ?",
+    "choices": [
+      "Abonnement",
+      "Groupe de ressources",
+      "Ressource individuelle",
+      "Groupe d'administration"
+    ],
+    "answer": 2,
+    "explanation": "Le RBAC Azure est hiérarchique et hérité. Vous pouvez assigner des permissions au niveau le plus granulaire, c'est-à-dire une ressource spécifique (comme une machine virtuelle ou un compte de stockage), pour appliquer le principe du moindre privilège."
+  },
+  {
+    "id": "q270",
+    "domain": "Surveillance et sauvegarde des ressources Azure",
+    "question": "Quel outil de diagnostic de Network Watcher vous permet de vérifier si une règle de sécurité de groupe réseau (NSG) autorise ou bloque le trafic entre deux points de terminaison ?",
+    "choices": [
+      "Topologie",
+      "Vérification du flux IP (IP Flow Verify)",
+      "Moniteur de connexion",
+      "Capture de paquets"
+    ],
+    "answer": 1,
+    "explanation": "IP Flow Verify est un outil de dépannage de premier ordre qui simule un paquet et vous indique exactement quelle règle de sécurité dans votre NSG est responsable de l'autorisation ou du refus du trafic, vous aidant à résoudre rapidement les problèmes de configuration."
+  },
+  {
+    "id": "q271",
+    "domain": "Déploiement et gestion des ressources de calcul Azure",
+    "question": "Quelle est la principale fonction des 'emplacements de déploiement' (Deployment Slots) dans Azure App Service ?",
+    "choices": [
+      "Sauvegarder l'application web.",
+      "Fournir des environnements de pré-production (staging) pour tester de nouvelles versions d'une application avant de les échanger (swap) avec l'emplacement de production sans temps d'arrêt.",
+      "Mettre à l'échelle l'application en ajoutant plus d'instances.",
+      "Déployer l'application dans différentes régions."
+    ],
+    "answer": 1,
+    "explanation": "Les emplacements de déploiement sont une fonctionnalité clé pour les déploiements de type 'blue-green' ou les tests A/B, permettant des mises à jour d'applications fiables et sans interruption pour l'utilisateur final."
+  },
+  {
+    "id": "q272",
+    "domain": "Mise en réseau virtuelle",
+    "question": "Quelle est la principale fonction de la protection DDoS Standard par rapport à la protection DDoS Basic (par défaut) ?",
+    "choices": [
+      "La version Basic est payante, la Standard est gratuite.",
+      "La version Standard offre une protection adaptative et ajustée aux modèles de trafic de votre VNet, une télémétrie d'attaque détaillée, et une garantie de coût contre les frais liés à la mise à l'échelle pendant une attaque.",
+      "La version Basic protège uniquement les VM, la Standard protège tous les services.",
+      "La version Standard agit comme un WAF."
+    ],
+    "answer": 1,
+    "explanation": "DDoS Protection Standard est un service payant qui offre des capacités de mitigation et de reporting bien supérieures à la protection de base de l'infrastructure, ce qui est essentiel pour les applications critiques."
+  },
+  {
+    "id": "q273",
+    "domain": "Mise en œuvre et gestion du stockage",
+    "question": "Quel outil en ligne de commande est le plus performant pour copier de grandes quantités de données vers ou depuis un stockage Blob ou Fichier Azure ?",
+    "choices": [
+      "Azure CLI (az storage blob upload)",
+      "PowerShell (Set-AzStorageBlobContent)",
+      "AzCopy",
+      "FTP"
+    ],
+    "answer": 2,
+    "explanation": "AzCopy est un utilitaire spécifiquement optimisé pour des transferts de données à haut débit et résilients. Il utilise le parallélisme et peut reprendre des travaux interrompus, ce qui en fait l'outil de choix pour les transferts de données volumineux."
+  },
+  {
+    "id": "q274",
+    "domain": "Gestion des identités et gouvernance",
+    "question": "Quelle est la principale différence entre une attribution de rôle 'Éligible' et 'Active' dans Azure AD Privileged Identity Management (PIM) ?",
+    "choices": [
+      "L'attribution active est permanente, l'éligible est temporaire.",
+      "Un utilisateur avec une attribution 'Éligible' doit effectuer une action (comme une demande d'approbation ou une MFA) pour activer le rôle pour une durée limitée. Une attribution 'Active' signifie que le rôle est permanent pour l'utilisateur.",
+      "Seules les attributions actives peuvent être auditées.",
+      "L'éligible est pour les utilisateurs invités, l'active pour les membres."
+    ],
+    "answer": 1,
+    "explanation": "L'utilisation d'attributions éligibles est une pratique de sécurité fondamentale du moindre privilège et de l'accès juste-à-temps (JIT), garantissant que les permissions élevées ne sont utilisées que lorsqu'elles sont nécessaires."
+  },
+  {
+    "id": "q275",
+    "domain": "Surveillance et sauvegarde des ressources Azure",
+    "question": "Quel composant d'Azure Monitor vous permet de créer des visualisations interactives et riches en combinant du texte, des requêtes de journal, des métriques et des paramètres ?",
+    "choices": [
+      "Tableaux de bord (Dashboards)",
+      "Metrics Explorer",
+      "Classeurs (Workbooks)",
+      "Power BI"
+    ],
+    "answer": 2,
+    "explanation": "Les classeurs sont bien plus qu'un simple tableau de bord. Ils permettent de créer de véritables rapports d'investigation interactifs, ce qui en fait un outil de choix pour le dépannage et l'analyse approfondie."
+  },
+  {
+    "id": "q276",
+    "domain": "Déploiement et gestion des ressources de calcul Azure",
+    "question": "Quelle est la fonction principale d'un 'autoscaler de cluster' dans Azure Kubernetes Service (AKS) ?",
+    "choices": [
+      "Ajuster le nombre de pods dans un déploiement.",
+      "Ajuster le nombre de nœuds (machines virtuelles) dans un pool de nœuds en fonction des demandes de ressources des pods en attente.",
+      "Mettre à jour la version de Kubernetes sur les nœuds.",
+      "Équilibrer la charge du trafic entre les nœuds."
+    ],
+    "answer": 1,
+    "explanation": "L'autoscaler de cluster assure l'efficacité des coûts et la disponibilité en ajoutant des nœuds lorsque plus de pods ont besoin d'être planifiés et en supprimant les nœuds sous-utilisés."
+  },
+  {
+    "id": "q277",
+    "domain": "Mise en réseau virtuelle",
+    "question": "Quelle est la fonction principale des politiques de réseau (Network Policies) dans Azure Kubernetes Service ?",
+    "choices": [
+      "Contrôler le trafic entre les nœuds du cluster.",
+      "Définir des règles de trafic au niveau de la couche 7 pour les entrées.",
+      "Contrôler le flux de trafic entre les pods au sein du cluster, agissant comme un micro-pare-feu pour les pods.",
+      "Contrôler le trafic entre le cluster et le VNet."
+    ],
+    "answer": 2,
+    "explanation": "Les politiques de réseau sont un outil de sécurité essentiel pour la micro-segmentation, vous permettant d'isoler les charges de travail et de ne permettre que les flux de communication nécessaires entre les différents composants de votre application."
+  },
+  {
+    "id": "q278",
+    "domain": "Mise en œuvre et gestion du stockage",
+    "question": "Quelle est la principale différence entre le niveau de stockage 'Froid' (Cool) et 'Archive' ?",
+    "choices": [
+      "Le niveau Froid est plus cher en termes de stockage que le niveau Archive.",
+      "Les données du niveau Froid sont accessibles instantanément (avec une latence de l'ordre de la milliseconde), tandis que les données du niveau Archive nécessitent un processus de réhydratation qui peut prendre plusieurs heures.",
+      "Le niveau Archive n'est pas géo-redondant.",
+      "Le niveau Froid a des coûts d'accès plus élevés que le niveau Archive."
+    ],
+    "answer": 1,
+    "explanation": "Le choix entre Froid et Archive dépend de la latence de récupération acceptable. Le niveau Froid est pour les données rarement consultées mais qui doivent être disponibles immédiatement, tandis que le niveau Archive est pour la conservation à long terme où un délai de récupération est acceptable."
+  },
+  {
+    "id": "q279",
+    "domain": "Gestion des identités et gouvernance",
+    "question": "Quel outil peut être utilisé pour estimer les coûts mensuels d'une solution que vous prévoyez de déployer sur Azure ?",
+    "choices": [
+      "Azure Advisor",
+      "Azure Cost Management",
+      "La calculatrice de prix Azure (Azure Pricing Calculator)",
+      "Le portail Azure"
+    ],
+    "answer": 2,
+    "explanation": "La calculatrice de prix est un outil web public qui vous permet de configurer des produits et services Azure pour obtenir une estimation détaillée des coûts avant de déployer quoi que ce soit."
+  },
+  {
+    "id": "q280",
+    "domain": "Surveillance et sauvegarde des ressources Azure",
+    "question": "Quelle est la fonction principale d'un 'plan de récupération' (Recovery Plan) dans Azure Site Recovery (ASR) ?",
+    "choices": [
+      "Sauvegarder la configuration ASR.",
+      "Orchestrer et automatiser le basculement de plusieurs machines virtuelles en définissant des groupes, des dépendances et des étapes de script, pour garantir une reprise d'activité cohérente.",
+      "Restaurer des fichiers individuels.",
+      "Calculer le temps de récupération (RTO)."
+    ],
+    "answer": 1,
+    "explanation": "Pour une application multi-niveaux (par ex., base de données, backend, frontend), il est crucial de démarrer les VM dans le bon ordre. Un plan de récupération automatise cette orchestration complexe, réduisant le RTO et les erreurs humaines."
+  },
+  {
+    "id": "q281",
+    "domain": "Déploiement et gestion des ressources de calcul Azure",
+    "question": "Quelle est la principale utilité de la fonctionnalité 'VNet Integration' pour un Azure App Service ?",
+    "choices": [
+      "Exposer l'App Service avec une adresse IP publique.",
+      "Permettre au trafic sortant de l'App Service d'accéder à des ressources dans un réseau virtuel (VNet) Azure.",
+      "Connecter deux App Services entre eux.",
+      "Isoler complètement l'App Service dans son propre réseau."
+    ],
+    "answer": 1,
+    "explanation": "L'intégration VNet est essentielle lorsque votre application web a besoin de se connecter à des ressources qui ne sont pas exposées publiquement, comme des bases de données SQL sur une VM ou des services utilisant des points de terminaison privés."
+  },
+  {
+    "id": "q282",
+    "domain": "Mise en réseau virtuelle",
+    "question": "Quelle est la principale fonction d'un 'groupe de sécurité d'application' (Application Security Group - ASG) ?",
+    "choices": [
+      "Regrouper des applications pour la facturation.",
+      "Regrouper des machines virtuelles (par ex., 'serveurs web' ou 'serveurs de base de données') pour pouvoir utiliser ces groupes comme source ou destination dans les règles de groupe de sécurité réseau (NSG).",
+      "Appliquer un pare-feu d'application web (WAF) à un groupe d'applications.",
+      "Isoler des applications dans des réseaux virtuels distincts."
+    ],
+    "answer": 1,
+    "explanation": "Les ASG simplifient considérablement la gestion des NSG en vous permettant de définir des règles basées sur la fonction d'une VM plutôt que sur des adresses IP statiques, ce qui rend les règles plus lisibles et plus faciles à maintenir."
+  },
+  {
+    "id": "q283",
+    "domain": "Mise en œuvre et gestion du stockage",
+    "question": "Quelle est la principale différence entre un 'blob de blocs' (Block Blob) et un 'blob d'ajout' (Append Blob) ?",
+    "choices": [
+      "Le blob d'ajout est plus grand que le blob de blocs.",
+      "Le blob de blocs est optimisé pour le téléchargement de gros objets et le streaming, tandis que le blob d'ajout est optimisé pour les opérations d'ajout rapides, comme les fichiers journaux.",
+      "Le blob de blocs est utilisé pour les disques VHD.",
+      "Seul le blob d'ajout peut être chiffré."
+    ],
+    "answer": 1,
+    "explanation": "Vous choisissez le type de blob en fonction de votre cas d'utilisation. Pour des fichiers statiques comme des images ou des vidéos, vous utilisez un blob de blocs. Pour des données qui sont constamment ajoutées à la fin, comme des logs, vous utilisez un blob d'ajout."
+  },
+  {
+    "id": "q284",
+    "domain": "Gestion des identités et gouvernance",
+    "question": "Quel est le but d'un 'abonnement' (subscription) dans Azure ?",
+    "choices": [
+      "Un conteneur logique pour les ressources.",
+      "Une unité de gestion, de facturation et de mise à l'échelle. Les ressources sont créées dans des abonnements, et les abonnements sont liés à un tenant Azure AD.",
+      "Un groupe d'utilisateurs avec les mêmes permissions.",
+      "Un contrat de licence pour un produit spécifique."
+    ],
+    "answer": 1,
+    "explanation": "L'abonnement est une limite administrative et technique fondamentale dans Azure. Il est utilisé pour séparer les environnements (par ex., production, développement), pour la facturation et pour définir les limites de service (quotas)."
+  },
+  {
+    "id": "q285",
+    "domain": "Surveillance et sauvegarde des ressources Azure",
+    "question": "Quelle est la fonction principale d'Azure Advisor ?",
+    "choices": [
+      "Surveiller les performances des applications en temps réel.",
+      "Fournir des recommandations personnalisées et exploitables pour optimiser vos ressources Azure dans cinq domaines : Coût, Sécurité, Fiabilité, Excellence opérationnelle et Performance.",
+      "Sauvegarder automatiquement les ressources recommandées.",
+      "Déployer des ressources de manière optimisée."
+    ],
+    "answer": 1,
+    "explanation": "Azure Advisor agit comme un consultant cloud personnalisé, en analysant votre configuration et votre utilisation pour vous aider à améliorer votre posture sur Azure selon les meilleures pratiques du Well-Architected Framework."
+  },
+  {
+    "id": "q286",
+    "domain": "Déploiement et gestion des ressources de calcul Azure",
+    "question": "Quelle est la principale différence entre une machine virtuelle de génération 1 et de génération 2 dans Azure ?",
+    "choices": [
+      "La génération 1 est plus rapide.",
+      "La génération 2 utilise une architecture de démarrage basée sur UEFI et prend en charge des fonctionnalités plus récentes comme les disques de système d'exploitation de plus de 2 To, les disques SSD Premium et les fonctionnalités de Trusted Launch.",
+      "La génération 1 ne prend en charge que Windows.",
+      "La génération 2 est moins chère."
+    ],
+    "answer": 1,
+    "explanation": "Pour toutes les nouvelles machines virtuelles, la génération 2 est le choix recommandé car elle offre de meilleures performances, une sécurité accrue (via Trusted Launch) et prend en charge des configurations de système d'exploitation et de disque plus importantes."
+  },
+  {
+    "id": "q287",
+    "domain": "Mise en réseau virtuelle",
+    "question": "Quelle est la principale fonction d'une 'passerelle de réseau local' (Local Network Gateway) dans une configuration VPN ?",
+    "choices": [
+      "Représenter la passerelle VPN côté Azure.",
+      "Représenter l'appareil VPN sur site (on-premises) en spécifiant son adresse IP publique et les plages d'adresses de son réseau.",
+      "Agir comme un pare-feu pour le réseau local.",
+      "Équilibrer la charge du trafic VPN."
+    ],
+    "answer": 1,
+    "explanation": "La passerelle de réseau local est un objet de configuration dans Azure qui permet à la passerelle de réseau virtuel Azure de savoir où et comment se connecter à votre équipement VPN sur site pour établir le tunnel site-à-site."
+  },
+  {
+    "id": "q288",
+    "domain": "Mise en œuvre et gestion du stockage",
+    "question": "Quelle est la principale différence entre une SAS de service et une SAS de compte ?",
+    "choices": [
+      "La SAS de service est plus sécurisée.",
+      "Une SAS de service délègue l'accès à une ressource dans un seul service de stockage (par ex., un blob spécifique ou un conteneur), tandis qu'une SAS de compte délègue l'accès à des ressources dans un ou plusieurs des services de stockage.",
+      "La SAS de compte ne peut être utilisée que par des administrateurs.",
+      "Seule la SAS de service a une date d'expiration."
+    ],
+    "answer": 1,
+    "explanation": "Vous utilisez une SAS de service pour un accès granulaire (par ex., donner un accès en lecture à un seul fichier). Vous utilisez une SAS de compte lorsque vous avez besoin de donner des permissions plus larges, comme la possibilité de lister des conteneurs."
+  },
+  {
+    "id": "q289",
+    "domain": "Gestion des identités et gouvernance",
+    "question": "Quel est le but des 'groupes d'administration' (Management Groups) ?",
+    "choices": [
+      "Regrouper des machines virtuelles pour la haute disponibilité.",
+      "Fournir un niveau de portée au-dessus des abonnements pour appliquer efficacement la gouvernance (politiques, RBAC) à un ensemble d'abonnements.",
+      "Gérer les groupes dans Azure AD.",
+      "Contrôler les coûts d'un groupe de ressources."
+    ],
+    "answer": 1,
+    "explanation": "Les groupes d'administration sont essentiels pour la gouvernance d'entreprise, vous permettant d'organiser vos abonnements de manière hiérarchique (par ex., par département) et d'appliquer des politiques communes à tous les abonnements d'un groupe."
+  },
+  {
+    "id": "q290",
+    "domain": "Surveillance et sauvegarde des ressources Azure",
+    "question": "Quelle est la principale différence entre une 'politique de sauvegarde' et un 'coffre Recovery Services' ?",
+    "choices": [
+      "Un coffre est une ressource qui stocke les données de sauvegarde et de récupération, tandis qu'une politique de sauvegarde est un ensemble de règles (fréquence, rétention) qui définit quand et comment les sauvegardes sont effectuées.",
+      "La politique est plus chère que le coffre.",
+      "Un coffre est régional, une politique est mondiale.",
+      "Ils sont interchangeables."
+    ],
+    "answer": 0,
+    "explanation": "Vous créez d'abord un coffre pour contenir vos données. Ensuite, vous créez une ou plusieurs politiques de sauvegarde que vous associez aux ressources que vous souhaitez protéger et qui seront sauvegardées dans ce coffre."
+  },
+  {
+    "id": "q291",
+    "domain": "Déploiement et gestion des ressources de calcul Azure",
+    "question": "Quel est le but de la fonctionnalité de 'redémarrage sur place' (in-place restart) pour une machine virtuelle ?",
+    "choices": [
+      "Déplacer la VM vers un autre hôte.",
+      "Redémarrer la machine virtuelle sur le même hôte Azure, ce qui peut être plus rapide qu'un redémarrage standard qui peut impliquer une réallocation.",
+      "Appliquer les mises à jour du système d'exploitation.",
+      "Supprimer et recréer la VM."
+    ],
+    "answer": 1,
+    "explanation": "Le redémarrage sur place est utile lorsque vous n'avez pas besoin de déplacer la VM vers un nouvel hôte, par exemple après une modification de configuration qui ne nécessite qu'un redémarrage du système d'exploitation invité."
+  },
+  {
+    "id": "q292",
+    "domain": "Mise en réseau virtuelle",
+    "question": "Quelle est la fonction principale d'un 'point de terminaison privé' (Private Endpoint) ?",
+    "choices": [
+      "Donner une adresse IP publique à un service PaaS.",
+      "Injecter une carte réseau (NIC) avec une adresse IP privée de votre VNet dans le service PaaS, permettant une communication privée et sécurisée.",
+      "Chiffrer le trafic Internet.",
+      "Connecter un réseau local à Azure."
+    ],
+    "answer": 1,
+    "explanation": "Les points de terminaison privés sont la méthode la plus sécurisée pour accéder aux services PaaS depuis un VNet, car le trafic ne quitte jamais le réseau Microsoft, et vous pouvez appliquer des NSG et des pare-feu comme pour n'importe quelle autre ressource de votre VNet."
+  },
+  {
+    "id": "q293",
+    "domain": "Mise en œuvre et gestion du stockage",
+    "question": "Quelle est la principale raison de choisir des disques SSD Premium par rapport à des disques durs Standard (HDD) pour une machine virtuelle de production ?",
+    "choices": [
+      "Les disques durs sont plus grands.",
+      "Les disques SSD Premium offrent des performances (IOPS et débit) et une latence beaucoup plus faibles et constantes, ce qui est essentiel pour les charges de travail de base de données et les applications sensibles aux performances.",
+      "Les disques durs sont plus sécurisés.",
+      "Les disques SSD Premium sont moins chers."
+    ],
+    "answer": 1,
+    "explanation": "Les disques durs Standard sont adaptés au stockage de masse à faible coût où la performance n'est pas critique (par ex., sauvegardes, données froides), tandis que les disques SSD Premium sont conçus pour les charges de travail exigeantes qui nécessitent des performances garanties."
+  },
+  {
+    "id": "q294",
+    "domain": "Gestion des identités et gouvernance",
+    "question": "Quel est le but de la fonctionnalité de 'verrouillage de ressource' (Resource Lock) dans Azure ?",
+    "choices": [
+      "Chiffrer une ressource.",
+      "Protéger une ressource contre la suppression ou la modification accidentelle par les utilisateurs, y compris les administrateurs.",
+      "Restreindre l'accès réseau à une ressource.",
+      "Attribuer des permissions à une ressource."
+    ],
+    "answer": 1,
+    "explanation": "Les verrous (CanNotDelete ou ReadOnly) sont un contrôle de gouvernance simple mais très efficace pour empêcher des erreurs coûteuses sur des ressources critiques de production."
+  },
+  {
+    "id": "q295",
+    "domain": "Surveillance et sauvegarde des ressources Azure",
+    "question": "Quelle est la principale différence entre la 'restauration de fichiers' et la 'restauration de VM' à partir d'une sauvegarde de machine virtuelle Azure ?",
+    "choices": [
+      "La restauration de fichiers est plus lente.",
+      "La restauration de VM recrée la machine virtuelle complète (ou ses disques), tandis que la restauration de fichiers vous permet de monter les disques du point de récupération et de copier des fichiers et dossiers spécifiques sans avoir à restaurer toute la VM.",
+      "La restauration de VM est moins chère.",
+      "La restauration de fichiers ne fonctionne que pour Windows."
+    ],
+    "answer": 1,
+    "explanation": "La restauration de fichiers est extrêmement utile pour des scénarios courants où un utilisateur a accidentellement supprimé un fichier, car elle est beaucoup plus rapide et moins disruptive que de restaurer l'intégralité de la machine virtuelle."
+  },
+  {
+    "id": "q296",
+    "domain": "Déploiement et gestion des ressources de calcul Azure",
+    "question": "Quel est le but de la fonctionnalité de 'maintenance planifiée' (Planned Maintenance) pour les machines virtuelles Azure ?",
+    "choices": [
+      "Sauvegarder automatiquement la VM.",
+      "Informer l'utilisateur des fenêtres de maintenance de l'hôte Azure qui nécessitent un redémarrage de la VM, et lui permettre de déclencher la maintenance à un moment qui lui convient.",
+      "Appliquer les mises à jour Windows Update.",
+      "Réduire le coût de la VM."
+    ],
+    "answer": 1,
+    "explanation": "La maintenance planifiée vous donne un contrôle proactif sur les redémarrages nécessaires pour la maintenance de la plateforme Azure, vous permettant de minimiser l'impact sur vos charges de travail."
+  },
+  {
+    "id": "q297",
+    "domain": "Mise en réseau virtuelle",
+    "question": "Quelle est la principale différence entre Azure Firewall et un groupe de sécurité réseau (NSG) ?",
+    "choices": [
+      "Le NSG est un service mondial, Azure Firewall est régional.",
+      "Un NSG est un pare-feu de couche 4 distribué qui filtre le trafic vers/depuis les ressources d'un VNet, tandis qu'Azure Firewall est un service de pare-feu centralisé, stateful, avec des capacités de couche 4 et 7.",
+      "Azure Firewall est moins cher qu'un NSG.",
+      "Un NSG peut inspecter le trafic TLS, Azure Firewall non."
+    ],
+    "answer": 1,
+    "explanation": "Les NSG sont utilisés pour la micro-segmentation de base au sein d'un VNet. Azure Firewall est utilisé comme un pare-feu de périmètre central pour inspecter et contrôler tout le trafic entrant et sortant du VNet (ou entre les VNets)."
+  },
+  {
+    "id": "q298",
+    "domain": "Mise en œuvre et gestion du stockage",
+    "question": "Quel est le but de la fonctionnalité de 'hiérarchisation cloud' (cloud tiering) dans Azure File Sync ?",
+    "choices": [
+      "Chiffrer les fichiers dans le cloud.",
+      "Permettre au serveur de fichiers local de ne conserver que les fichiers fréquemment consultés en cache, tandis que les fichiers moins consultés sont stockés uniquement dans le partage de fichiers Azure, libérant ainsi de l'espace disque local.",
+      "Synchroniser les fichiers entre plusieurs partages de fichiers Azure.",
+      "Sauvegarder les fichiers dans le cloud."
+    ],
+    "answer": 1,
+    "explanation": "La hiérarchisation cloud est l'un des principaux avantages d'Azure File Sync, vous permettant d'avoir un serveur de fichiers local avec une capacité de stockage apparemment illimitée, tout en ne payant que pour la capacité réellement utilisée en cache."
+  },
+  {
+    "id": "q299",
+    "domain": "Gestion des identités et gouvernance",
+    "question": "Quelle est la fonction principale d'un 'modèle ARM' (Azure Resource Manager template) ?",
+    "choices": [
+      "Un script pour configurer une machine virtuelle après son déploiement.",
+      "Un fichier déclaratif (généralement JSON) qui définit une ou plusieurs ressources Azure à déployer, permettant une infrastructure en tant que code (Infrastructure as Code - IaC) reproductible et cohérente.",
+      "Une image de machine virtuelle personnalisée.",
+      "Une politique de sécurité pour les ressources."
+    ],
+    "answer": 1,
+    "explanation": "Les modèles ARM sont fondamentaux pour l'automatisation et les pratiques DevOps dans Azure, car ils permettent de définir et de versionner l'ensemble de votre infrastructure dans des fichiers de code."
+  },
+  {
+    "id": "q300",
+    "domain": "Surveillance et sauvegarde des ressources Azure",
+    "question": "Quelle est la principale différence entre un 'groupe à haute disponibilité' (Availability Set) et une 'zone de disponibilité' (Availability Zone) ?",
+    "choices": [
+      "Un groupe à haute disponibilité protège contre les pannes de centres de données, une zone ne le fait pas.",
+      "Un groupe à haute disponibilité protège contre les pannes matérielles au sein d'un centre de données (racks, serveurs), tandis qu'une zone de disponibilité protège contre la panne d'un centre de données entier en utilisant des emplacements physiquement séparés au sein d'une région.",
+      "Une zone de disponibilité est moins chère.",
+      "Un groupe à haute disponibilité offre une meilleure latence."
+    ],
+    "answer": 1,
+    "explanation": "Les zones de disponibilité offrent un niveau de résilience beaucoup plus élevé et sont la solution recommandée pour les applications critiques, car elles peuvent survivre à des pannes à grande échelle (inondation, panne de courant) qui affecteraient un centre de données complet."
   }
+
 ]
