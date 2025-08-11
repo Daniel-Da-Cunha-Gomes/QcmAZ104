@@ -36,9 +36,9 @@ export default function QCM() {
     let newSelection = []
     let attempts = 0
     do {
-      newSelection = shuffleArray(questionsData).slice(0, 10)
+      newSelection = shuffleArray(questionsData).slice(0, 60)
       attempts++
-      if (attempts > 10) break
+      if (attempts > 60) break
     } while (arraysEqualById(newSelection, previousSelection.current))
     previousSelection.current = newSelection
     return newSelection
@@ -105,7 +105,7 @@ export default function QCM() {
   // Fonction pour obtenir le prochain numéro de fichier
   function getNextFileNumber() {
     const stored = localStorage.getItem("qcm_file_counter")
-    const current = stored ? Number.parseInt(stored, 10) : 0
+    const current = stored ? Number.parseInt(stored, 60) : 0
     const next = current + 1
     localStorage.setItem("qcm_file_counter", next.toString())
     return next
