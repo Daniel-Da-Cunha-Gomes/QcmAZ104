@@ -257,6 +257,7 @@ export default function QCM() {
             <span>
               Score : {correctCount} / {questions.length}
             </span>
+            <br />
             <span>Erreurs : {sessionErrors.length}</span>
           </div>
         </footer>
